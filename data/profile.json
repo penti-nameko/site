@@ -1,0 +1,71 @@
+{
+  "name": "星月 りえる",
+  "nameEn": "Reel Hosiduki",
+  "bio": "自身の知識をもとにインフラを構築、日々改善を繰り返す開発者",
+  "location": "Japan",
+  "email": "namonakiheimin@gmail.com",
+  "odaibako": "https://odaibako.net/u/riel_hosiduki",
+  "social": {
+    "twitter": "https://x.com/riel_hosiduki",
+    "instagram": "https://www.instagram.com/rielu_hosiduki/",
+    "github": "https://github.com/penti-nameko"
+  },
+  "skills": ["kubernetes", "security", "Linux", "Docker", "CI/CD", "cloud"],
+  "links": [
+    {
+      "category": "SNS",
+      "items": [
+        { "label": "Twitter / X", "url": "https://x.com/riel_hosiduki", "description": "日々の思考や発見をつぶやいています" },
+        { "label": "Instagram", "url": "https://www.instagram.com/rielu_hosiduki/", "description": "写真と日常のスナップ" },
+        { "label": "GitHub", "url": "https://github.com/penti-nameko", "description": "コードと個人プロジェクト" }
+      ]
+    },
+    {
+      "category": "コンテンツ",
+      "items": [
+        { "label": "note", "url": "https://note.com/tp33_juicemixer", "description": "軽めの記事" },
+        { "label": "Qiita", "url": "https://qiita.com/riel-hosiduki", "description": "技術系記事" }
+      ]
+    },
+    {
+      "category": "お問い合わせ",
+      "items": [
+        { "label": "お題箱", "url": "https://odaibako.net/u/riel_hosiduki", "description": "匿名でメッセージを送れます" }
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "静寂の中で見つけた創造性について",
+      "excerpt": "デジタルノイズから離れた一週間の記録と、そこで気づいたこと。",
+      "date": "2026-05-20",
+      "category": "Essay",
+      "readTime": "5 min"
+    },
+    {
+      "id": 2,
+      "title": "東京の小さな喫茶店を巡る旅",
+      "excerpt": "見逃しがちな路地裏の名店と、そこで出会った人たちの話。",
+      "date": "2026-04-15",
+      "category": "Travel",
+      "readTime": "8 min"
+    },
+    {
+      "id": 3,
+      "title": "AIと共存する時代のクリエイティブ論",
+      "excerpt": "ツールが進化する中で、人間らしさとは何かを改めて考える。",
+      "date": "2026-03-02",
+      "category": "Tech",
+      "readTime": "6 min"
+    },
+    {
+      "id": 4,
+      "title": "朝のルーティンが変えた一年",
+      "excerpt": "小さな習慣の積み重ねがいかに人生を変えるかの実験記録。",
+      "date": "2026-02-10",
+      "category": "Lifestyle",
+      "readTime": "4 min"
+    }
+  ]
+}

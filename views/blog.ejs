@@ -1,0 +1,48 @@
+<%- include('partials/header', { title: 'Blog' }) %>
+
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="section-label reveal">Writing</p>
+      <h1 class="page-title reveal delay-1">Blog</h1>
+      <p class="page-subtitle reveal delay-2">思考の断片、旅の記録、日々の発見</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <!-- Category filter -->
+    <div class="filter-bar reveal">
+      <a href="/blog" class="filter-btn <%= !activeCategory ? 'active' : '' %>">All</a>
+      <% categories.forEach(cat => { %>
+      <a href="/blog?category=<%= cat %>"
+         class="filter-btn <%= activeCategory === cat ? 'active' : '' %>">
+        <%= cat %>
+      </a>
+      <% }) %>
+    </div>
+
+    <!-- Posts -->
+    <div class="blog-list">
+      <% posts.forEach((post, i) => { %>
+      <article class="blog-item reveal delay-<%= i % 3 %>">
+        <div class="blog-item-left">
+          <span class="post-category"><%= post.category %></span>
+          <time class="blog-date"><%= new Date(post.date).toLocaleDateString('ja-JP') %></time>
+        </div>
+        <div class="blog-item-right">
+          <h2 class="blog-item-title">
+            <a href="/blog/<%= post.id %>"><%= post.title %></a>
+          </h2>
+          <p class="post-excerpt"><%= post.excerpt %></p>
+          <span class="post-read"><%= post.readTime %></span>
+        </div>
+      </article>
+      <% }) %>
+      <% if (posts.length === 0) { %>
+      <p class="no-posts">記事が見つかりませんでした。</p>
+      <% } %>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

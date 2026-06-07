@@ -1,0 +1,34 @@
+<%- include('partials/header', { title: post.title }) %>
+
+<main>
+  <article class="post-page">
+    <header class="post-header">
+      <div class="post-header-inner">
+        <div class="post-meta-top reveal">
+          <span class="post-category"><%= post.category %></span>
+          <span class="post-read"><%= post.readTime %></span>
+        </div>
+        <h1 class="post-page-title reveal delay-1"><%= post.title %></h1>
+        <time class="post-page-date reveal delay-2">
+          <%= new Date(post.date).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+        </time>
+      </div>
+    </header>
+
+    <div class="post-body reveal delay-3">
+      <p class="post-lead"><%= post.excerpt %></p>
+      <p>この記事はデモ用のプレースホルダーです。実際のコンテンツはここに表示されます。Markdownファイルや CMSと連携することで、本文を動的に読み込むことができます。</p>
+      <p>Node.js + EJS の組み合わせにより、テンプレートエンジンを通じた動的なページ生成が可能です。データは <code>data/profile.json</code> で管理されており、ここを編集することでサイト全体のコンテンツを更新できます。</p>
+      <blockquote>
+        <p>「書くことは、考えることを整理する行為だ。」</p>
+      </blockquote>
+      <p>今後の拡張として、Markdownパーサー（marked.js など）を導入することで、各記事をMarkdownファイルとして管理することも容易に実現できます。</p>
+    </div>
+
+    <div class="post-footer reveal">
+      <a href="/blog" class="btn-outline">← 一覧に戻る</a>
+    </div>
+  </article>
+</main>
+
+<%- include('partials/footer') %>

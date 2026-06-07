@@ -1,0 +1,40 @@
+<%- include('partials/header', { title: 'Links' }) %>
+
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="section-label reveal">Links</p>
+      <h1 class="page-title reveal delay-1">リンク集</h1>
+      <p class="page-subtitle reveal delay-2">各種SNS・コンテンツ・お問い合わせ先</p>
+    </div>
+  </section>
+
+  <section class="section links-section">
+    <% if (typeof profile !== 'undefined' && Array.isArray(profile.links)) { %>
+    <% profile.links.forEach((group, gi) => { %>
+    <div class="link-group reveal delay-<%= (gi % 3) + 1 %>">
+      <h2 class="link-group-title"><%= group.category %></h2>
+      <ul class="link-list">
+        <% (group.items || []).forEach((item, ii) => { %>
+        <li class="link-item reveal delay-<%= (ii % 3) + 1 %>">
+          <a href="<%= item.url %>" target="_blank" rel="noopener" class="link-card">
+            <div class="link-card-left">
+              <span class="link-label"><%= item.label || 'Link' %></span>
+              <span class="link-desc"><%= item.description || '' %></span>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+    <% }) %>
+    <% } else { %>
+    <div class="reveal">
+      <p class="page-subtitle">リンク情報が見つかりませんでした。データの読み込み設定を確認してください。</p>
+    </div>
+    <% } %>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

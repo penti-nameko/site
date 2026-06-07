@@ -1,0 +1,88 @@
+<%- include('partials/header', { title: 'Home' }) %>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-label reveal">Personal Site</p>
+      <h1 class="hero-name reveal delay-1"><%= profile.name %></h1>
+      <p class="hero-tagline reveal delay-2"><em><%= profile.tagline %></em></p>
+      <div class="hero-actions reveal delay-3">
+        <a href="/blog" class="btn-primary">Blog を読む</a>
+        <a href="#about" class="btn-ghost">About</a>
+      </div>
+    </div>
+    <div class="hero-deco" aria-hidden="true">
+      <div class="deco-line"></div>
+      <div class="deco-circle"></div>
+    </div>
+  </section>
+
+  <!-- Latest Posts -->
+  <section class="section posts-section">
+    <div class="section-header reveal">
+      <p class="section-label">Latest</p>
+      <h2 class="section-title">最近の記事</h2>
+    </div>
+    <div class="posts-grid">
+      <% profile.posts.slice(0, 3).forEach((post, i) => { %>
+      <article class="post-card reveal delay-<%= i %>">
+        <div class="post-card-top">
+          <span class="post-category"><%= post.category %></span>
+          <span class="post-read"><%= post.readTime %></span>
+        </div>
+        <h3 class="post-title">
+          <a href="/blog/<%= post.id %>"><%= post.title %></a>
+        </h3>
+        <p class="post-excerpt"><%= post.excerpt %></p>
+        <div class="post-meta">
+          <time><%= new Date(post.date).toLocaleDateString('ja-JP') %></time>
+        </div>
+      </article>
+      <% }) %>
+    </div>
+    <div class="section-cta reveal">
+      <a href="/blog" class="btn-outline">すべての記事 →</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section about-section" id="about">
+    <div class="about-inner">
+      <div class="about-text reveal">
+        <p class="section-label">About</p>
+        <h2 class="section-title">自己紹介</h2>
+        <p class="about-bio"><%= profile.bio %></p>
+        <p class="about-location">📍 <%= profile.location %></p>
+      </div>
+      <div class="about-skills reveal delay-1">
+        <p class="skills-label">Skills &amp; Interests</p>
+        <div class="skills-list">
+          <% profile.skills.forEach(skill => { %>
+          <span class="skill-tag"><%= skill %></span>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact-section" id="contact">
+    <div class="contact-inner reveal">
+      <p class="section-label">Contact</p>
+      <h2 class="contact-heading">質問・メッセージは<br>お題箱へ</h2>
+      <p class="contact-desc">匿名でメッセージを送ることができます。<br>お気軽にどうぞ。</p>
+      <a href="<%= profile.odaibako %>" target="_blank" rel="noopener" class="odaibako-btn">
+        <span class="odaibako-icon">✉</span>
+        お題箱を開く
+      </a>
+      <div class="contact-social">
+        <a href="<%= profile.social.twitter %>" target="_blank" rel="noopener">Twitter</a>
+        <a href="<%= profile.social.instagram %>" target="_blank" rel="noopener">Instagram</a>
+        <a href="<%= profile.social.github %>" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
