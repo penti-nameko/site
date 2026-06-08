@@ -18,11 +18,16 @@ spec:
           ports:
             - containerPort: 10000
               name: http
+            - containerPort: 10443
+              name: https
           volumeMounts:
             - name: static-config
               mountPath: /etc/envoy
             - name: dynamic-config
               mountPath: /etc/envoy/dynamic
+            - name: envoy-certs
+              mountPath: /etc/envoy/certs
+              readOnly: true
       volumes:
         - name: static-config
           configMap:
@@ -30,3 +35,6 @@ spec:
         - name: dynamic-config
           configMap:
             name: envoy-dynamic-config
+        - name: envoy-certs
+          secret:
+            secret_name: envoy-certs

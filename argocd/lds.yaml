@@ -33,3 +33,39 @@ resources:
                 - name: envoy.filters.http.router
                   typed_config:
                     "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+  - "@type": type.googleapis.com/envoy.config.listener.v3.Listener
+    name: ingress_https
+    address:
+      socket_address:
+        address: 0.0.0.0
+        port_value: 10443
+    filter_chains:
+      - filters:
+          - name: envoy.filters.network.http_connection_manager
+            typed_config:
+              "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+              stat_prefix: ingress_https
+              route_config:
+                name: local_route
+                virtual_hosts:
+                  - name: frontend_site
+                    domains: ["reeldev.jp"]
+                    routes:
+                      - match:
+                          prefix: "/"
+                        route:
+                          cluster: frontend_cluster
+              http_filters:
+                - name: envoy.filters.http.router
+                  typed_config:
+                    "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+        transport_socket:
+          name: envoy.transport_sockets.tls
+          typed_config:
+            "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
+            common_tls_context:
+              tls_certificates:
+                - certificate_chain:
+                    filename: /etc/envoy/certs/tls.crt
+                  private_key:
+                    filename: /etc/envoy/certs/tls.key
