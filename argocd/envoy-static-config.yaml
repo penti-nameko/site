@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: envoy-static-config
+data:
+  envoy.yaml: |
+    node:
+      id: "envoy-gateway"
+      cluster: "envoy-cluster"
+    dynamic_resources:
+      lds_config:
+        path_config_source:
+          path: /etc/envoy/dynamic/lds.yaml
+      cds_config:
+        path_config_source:
+          path: /etc/envoy/dynamic/cds.yaml
+    admin:
+      address:
+        socket_address:
+          address: 0.0.0.0
+          port_value: 9901

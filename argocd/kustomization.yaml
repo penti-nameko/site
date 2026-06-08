@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - envoy-deployment.yaml
+  - envoy-static-config.yaml
+
+configMapGenerator:
+  - name: envoy-dynamic-config
+    files:
+      - lds.yaml
+      - cds.yaml

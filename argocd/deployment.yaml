@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: envoy
+  namespace: envoy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: envoy
+  template:
+    metadata:
+      labels:
+        app: envoy
+    spec:
+      containers:
+        - name: envoy
+          image: envoyproxy/envoy:v1.30.0 # 運用に合わせてバージョンは固定
+          ports:
+            - containerPort: 10000
+              name: http
+            - containerPort: 9901
+              name: admin
+          volumeMounts:
+            - name: static-config
+              mountPath: /etc/envoy
+            - name: dynamic-config
+              mountPath: /etc/envoy/dynamic
+      volumes:
+        - name: static-config
+          configMap:
+            name: envoy-static-config
+        - name: dynamic-config
+          configMap:
+            name: envoy-dynamic-config
