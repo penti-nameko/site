@@ -2,20 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: profile-site
-  namespace: default
+  namespace: envoy
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: profile-site
+      app: site-app
   template:
     metadata:
       labels:
-        app: profile-site
+        app: site-app
     spec:
       containers:
         - name: site
-          # ここは実際にビルド・プッシュしたイメージ名に置き換えてください
           image: registry.uniproject.jp/homepage/site:v1.0.0
           imagePullPolicy: IfNotPresent
           ports:
@@ -32,7 +31,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: site-service
-  namespace: default
+  namespace: envoy
 spec:
   selector:
     app: site-app
