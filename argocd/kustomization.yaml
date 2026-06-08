@@ -11,10 +11,3 @@ configMapGenerator:
     files:
       - lds.yaml
       - cds.yaml
-
-secretGenerator:
-  - name: envoy-certs
-    files:
-      - tls.crt
-      - tls.key
-    type: "kubernetes.io/tls"
