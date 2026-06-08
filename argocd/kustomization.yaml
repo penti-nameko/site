@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - envoy-deployment.yaml
   - envoy-static-config.yaml
-  - site-resources.yaml
 
 configMapGenerator:
   - name: envoy-dynamic-config

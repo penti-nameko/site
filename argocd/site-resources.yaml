@@ -7,11 +7,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: site-app
+      app: profile-site
   template:
     metadata:
       labels:
-        app: site-app
+        app: profile-site
     spec:
       containers:
         - name: site
@@ -36,7 +36,6 @@ metadata:
 spec:
   selector:
     app: site-app
-    app: profile-site
   ports:
     - protocol: TCP
       port: 80
