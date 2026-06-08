@@ -35,8 +35,7 @@ metadata:
   namespace: default
 spec:
   selector:
-    matchLabels:
-      app: profile-site
+    app: profile-site
   ports:
     - protocol: TCP
       port: 80
