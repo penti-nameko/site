@@ -4,8 +4,8 @@ metadata:
   name: envoy-external-service
   namespace: homepages
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 172.16.240.10 
+  type: NodePort
+  nodePort: 32655
   selector:
     app: envoy 
   ports:
