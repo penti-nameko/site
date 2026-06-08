@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "docker:login": "docker login registry.uniproject.jp",
+    "docker:build": "docker build -t registry.uniproject.jp/homepage/site:v1.0.0 .",
+    "docker:push": "npm run docker:build && docker push registry.uniproject.jp/homepage/site:v1.0.0"
   },
   "keywords": [],
   "author": "",

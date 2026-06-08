@@ -16,7 +16,8 @@ spec:
       containers:
         - name: site
           # ここは実際にビルド・プッシュしたイメージ名に置き換えてください
-          image: your-registry/profile-site:latest
+          image: registry.uniproject.jp/homepage/site:v1.0.0
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           resources:
@@ -30,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-backend-service
+  name: site-service
   namespace: default
 spec:
   selector:
