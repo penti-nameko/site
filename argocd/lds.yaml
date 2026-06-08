@@ -13,14 +13,22 @@ resources:
               stat_prefix: ingress_http
               route_config:
                 name: local_route
+                
+                # ==========================================
+                # ドメインごとの振り分け設定
+                # ==========================================
                 virtual_hosts:
-                  - name: backend_service
-                    domains: ["*"]
+                  
+                  # ① フロントエンド用（app.example.com）
+                  - name: frontend_site
+                    domains: ["reeldev.jp"]
                     routes:
                       - match:
-                          prefix: "/"
+                          prefix: "/" # すべてのパスを対象
                         route:
-                          cluster: target_service_cluster
+                          cluster: frontend_cluster
+                # ==========================================
+
               http_filters:
                 - name: envoy.filters.http.router
                   typed_config:

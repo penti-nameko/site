@@ -12,5 +12,5 @@ resources:
                 - endpoint:
                     address:
                       socket_address:
-                        address: my-backend-service.default.svc.cluster.local
+                        address: site-service.default.svc.cluster.local
                         port_value: 80
