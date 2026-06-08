@@ -5,6 +5,7 @@ resources:
   - envoy-deployment.yaml
   - envoy-static-config.yaml
   - site-resources.yaml
+  - service.yaml
 configMapGenerator:
   - name: envoy-dynamic-config
     files:
