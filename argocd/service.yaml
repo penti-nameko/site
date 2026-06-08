@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: envoy-external-service
-  namespace: envoy
+  namespace: homepages
 spec:
   type: NodePort
   nodePort: 32655

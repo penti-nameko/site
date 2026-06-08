@@ -12,7 +12,7 @@ resources:
             - endpoint:
                 address:
                   socket_address:
-                    address: site-service.envoy.svc.cluster.local
+                    address: site-service.homepages.svc.cluster.local
                     port_value: 80
 typed_extension_protocol_options:
       envoy.extensions.upstreams.http.v3.HttpProtocolOptions:
